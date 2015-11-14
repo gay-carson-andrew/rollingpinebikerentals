@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cartapp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <header>
+    <h1> Rolling Pine Bike Rentals </h1>
+    <nav id="nav">
+      <div id="page_nav">
+        <%= link_to "Rent", products_path %>
+        <%= link_to "About", root_path %>
+        <%= link_to "Faq", page_faq_path %>
+        <%= link_to "Contact", page_contact_path %>
+      </div>
+      
+      <div id="sign_in">
+        <% if user_signed_in? %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path %>
+          <%= link_to "Register", new_user_registration_path %>
+        <% end %>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </main>
+
+</body>
+</html>

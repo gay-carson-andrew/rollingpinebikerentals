@@ -1,0 +1,29 @@
+<h1>Your Requested Reservations</h1>
+<% if @cart.empty? %>
+  <p>You have no reservation requests!</p>  
+<% else %>
+  <%= link_to 'Empty Cart', cart_clear_path %>
+<% end %>
+
+<br><br><br>
+
+<% total = 0 %>
+
+<ul>
+  <% @cart.each do | id, quantity | %>
+    <% product = Product.find_by_id(id) %>
+    <li>
+      <%= link_to product.title, product %> 
+      <p>
+        <span>Price: <%= number_to_currency(product.price, :unit => '$') %> </span>
+        <br>
+        <%= product.description %>
+        <br>
+        <span>Quantity: <%= quantity %></span>
+      </p>
+    </li>
+    <% total += quantity * product.price %>
+  <% end %>
+  <br><br><br>
+  <p><b>Total: <%= number_to_currency(total, :unit => '$') %></b></p>
+</ul>
