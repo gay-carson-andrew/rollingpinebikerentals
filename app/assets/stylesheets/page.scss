@@ -17,9 +17,9 @@ $forthPer: 35%;
 		#{$forthPer} {opacity: 1}
 }
 @mixin setupSlider() {
-	$sliderDelay: 5s;
-	$sliderDuration: 10s;
-	$sliderN: 3;
+	$sliderDelay: 10s;
+	$sliderDuration: 20s;
+	$sliderN: 2;
 	@for $sliderN from 1 through 2 {
 		&:nth-child(#{$sliderN}) {
 			animation-name: slider;
