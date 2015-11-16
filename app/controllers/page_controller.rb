@@ -11,4 +11,8 @@ class PageController < ApplicationController
 
   def faq
   end
+
+  def waiver
+
+  end
 end

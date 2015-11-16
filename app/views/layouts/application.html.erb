@@ -11,10 +11,12 @@
   <header>
     <h1> Rolling Pine Bike Rentals </h1>
 
-    <% Dir.glob("app/assets/images/header/*.jpg").each do |image| %> 
-      <%-# This should be placed in a controler, the variable before .each -%>
-      <%= image_tag "header/#{image.split('/').last}", :class => "slider" %>
-    <% end %>
+    <span id="headerSlider" alt="">
+      <% Dir.glob("app/assets/images/header/*").each do |image| %> 
+        <%-# This should be placed in a controler, the variable before .each -%>
+        <%= image_tag "header/#{image.split('/').last}", :class => "slider" %>
+      <% end %>
+    </span>
       
 
     <nav id="nav">
@@ -27,6 +29,7 @@
       
       <div id="sign_in">
         <% if user_signed_in? %>
+          <%= link_to "Cart", cart_path %>
           <%= link_to "Logout", destroy_user_session_path, method: :delete %>
         <% else %>
           <%= link_to "Login", new_user_session_path %>

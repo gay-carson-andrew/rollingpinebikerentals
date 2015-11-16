@@ -5,11 +5,21 @@
 
 /*Test Slider*/
 
+$firstPer: 0%;
+$secondPer: 5%;
+$thirdPer: 25%;
+$forthPer: 35%;
 
+@mixin setupSliderAnimation() {
+		#{$firstPer} {opacity: 1}
+		#{$secondPer} {opacity: 0}
+		#{$thirdPer} {opacity: 0}
+		#{$forthPer} {opacity: 1}
+}
 @mixin setupSlider() {
 	$sliderDelay: 5s;
-	$sliderDuration: 20s;
-	$sliderN: 2;
+	$sliderDuration: 10s;
+	$sliderN: 3;
 	@for $sliderN from 1 through 2 {
 		&:nth-child(#{$sliderN}) {
 			animation-name: slider;
@@ -20,11 +30,16 @@
 			animation-delay: $sliderDelay;
 			z-index: $sliderN;
 			$sliderN: $sliderN - 1;
-			$sliderDelay: $sliderDelay + ($sliderDuration / 2);
+			$sliderDelay: $sliderDelay + (($sliderDuration / 2));
   	}
 	}
 }
 
+@-webkit-keyframes slider {
+	@include setupSliderAnimation() {
+    
+  }
+}
 .slider {
 	position: absolute;
 	width:100%;
@@ -34,18 +49,11 @@
   }
 }
 
-@-webkit-keyframes slider {
-	0% {opacity: 1}
-	5% {opacity: 0}
-	45% {opacity: 0}
-	55% {opacity: 1}
-}
 
 /*End Test Slider*/
 
 body {
-  background: linear-gradient(rgba(0,110,0,0.8), rgba(255,255,255,0.5));
-  height: 100vh;
+
 }
 header {
   
