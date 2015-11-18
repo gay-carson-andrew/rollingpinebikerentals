@@ -2,13 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/**/
+
+/**/
+
+/*Test nav*/
+nav {
+  text-align: center;
+  width:100%;
+  bottom: 5px;
+  background: rgba(0,0,0,0.5);
+  position:absolute;
+  z-index: 10;
+}
+/*end Test nav*/
+
+/*Test removebullets*/
+ul
+{
+list-style-type: none;
+}
+/**/
+
 
 /*Test Slider*/
 
 $firstPer: 0%;
 $secondPer: 5%;
-$thirdPer: 25%;
-$forthPer: 35%;
+$thirdPer: 45%;
+$forthPer: 50%;
 
 @mixin setupSliderAnimation() {
 		#{$firstPer} {opacity: 1}
@@ -51,6 +73,11 @@ $forthPer: 35%;
 
 
 /*End Test Slider*/
+/*Fix for href a element styling... weird*/
+/*a[href^="tel"]{*/
+/*    color:white;*/
+/*    text-decoration:none;*/
+/*}*/
 
 body {
 
@@ -64,14 +91,6 @@ header {
   border-bottom: 1px solid black;
 }
 
-nav {
-  text-align: center;
-  width:100%;
-  bottom: 5px;
-  position:absolute;
-  z-index: 10;
-}
-
 /*Force bottom footer*/
 footer {
 	bottom: 0;
@@ -79,11 +98,6 @@ footer {
 	width:98%;
 }
 
-/*Fix for href a element styling... weird*/
-a[href^="tel"]{
-    color:white;
-    text-decoration:none;
-}
 
 /*Fix for HTML5 Image to left of paragraph*/
 p.clear {clear: both;}
@@ -93,8 +107,7 @@ p.clear {clear: both;}
 @media only screen and (max-width: 767px), only screen and (max-device-width: 767px) {
 	header {
 		background-image: none;
-    height: 20vh;
-    border-bottom: none;
+    	border-bottom: none;
 	}
   #logo {
     width: 17.5%;
@@ -104,3 +117,4 @@ p.clear {clear: both;}
   	padding: .5em 1.4em;
   }
 }
+
