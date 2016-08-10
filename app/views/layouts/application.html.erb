@@ -11,7 +11,7 @@
   <header>
     <h1> Rolling Pine Bike Rentals </h1>
 
-    <span id="headerSlider" alt="">..
+    <span id="headerSlider" alt="">
       <% Dir.glob("app/assets/images/header/*").each do |image| %> 
         <%-# This should be placed in a controler, the variable before .each -%>
         <%= image_tag "header/#{image.split('/').last}", :class => "slider" %>
